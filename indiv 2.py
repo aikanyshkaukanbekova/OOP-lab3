@@ -1,39 +1,39 @@
 #!/usr/bin/env python3
 # _*_ coding: utf-8 _*_
-from abc import ABC
-from typing import Union, Self
+
+from abc import ABC, abstractmethod
 
 
 class Number(ABC):
     """
-    Абстрактный класс для числа
+    Абстрактный класс  длячисла
     """
-    def __init__(self, value: Union[int, float]):
+    def __init__(self, value):
         self.value = value
 
-    def add(self, other: Self):
+    @abstractmethod
+    def add(self, other):
         """
         Операция сложения
         """
-        self.value = self.value + other.value
 
-    def sub(self, other: Self):
+    @abstractmethod
+    def sub(self, other):
         """
         Операция вычитания
         """
-        self.value = self.value - other.value
 
-    def mul(self, other: Self):
+    @abstractmethod
+    def mul(self, other):
         """
         Операция умножения
         """
-        self.value = self.value * other.value
 
-    def div(self, other: Self):
+    @abstractmethod
+    def div(self, other):
         """
         Операция деления
         """
-        self.value = self.value / other.value
 
     def __str__(self):
         return str(self.value)
@@ -46,28 +46,16 @@ class Integer(Number):
     def __init__(self, value: int):
         super().__init__(value)
 
-    def add(self, other: Self):
-        """
-        Переопределенный метод сложения
-        """
+    def add(self, other):
         self.value = int(self.value + other.value)
 
-    def sub(self, other: Self):
-        """
-        Переопределенный метод вычитания
-        """
+    def sub(self, other):
         self.value = int(self.value - other.value)
 
-    def mul(self, other: Self):
-        """
-        Переопределенный метод умножения
-        """
+    def mul(self, other):
         self.value = int(self.value * other.value)
 
-    def div(self, other: Self):
-        """
-        Переопределенный метод деления
-        """
+    def div(self, other):
         self.value = int(self.value / other.value)
 
 
@@ -77,6 +65,18 @@ class Real(Number):
     """
     def __init__(self, value: float):
         super().__init__(value)
+
+    def add(self, other):
+        self.value = float(self.value + other.value)
+
+    def sub(self, other):
+        self.value = float(self.value - other.value)
+
+    def mul(self, other):
+        self.value = float(self.value * other.value)
+
+    def div(self, other):
+        self.value = float(self.value / other.value)
 
 
 if __name__ == "__main__":

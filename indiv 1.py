@@ -1,9 +1,6 @@
 #!/usr/bin/env python3
 # _*_ coding: utf-8 _*_
 
-from typing import Self
-
-
 class Triad:
     """
     Класс "Триада", содержит в себе 3 целочисленных значения
@@ -29,7 +26,7 @@ class Triad:
         self.b = self.b * number
         self.c = self.c * number
 
-    def __eq__(self, other: Self):
+    def __eq__(self, other):
         """
         Операция сравнения с другой триадой
         """
@@ -46,7 +43,7 @@ class Vector3D(Triad):
     """
     Класс "Вектор", наследующийся от класса "Триада"
     """
-    def add_vector(self, other: Self):
+    def add_vector(self, other):
         """
         Определим метод сложения векторов
         """
@@ -54,7 +51,7 @@ class Vector3D(Triad):
         self.b = self.b + other.b
         self.c = self.c + other.c
 
-    def mul_vector(self, other: Self):
+    def mul_vector(self, other):
         """
         Определим метод умножения векторов
         """
